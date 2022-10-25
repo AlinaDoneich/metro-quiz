@@ -1,0 +1,77 @@
+/*
+активный цвет #ffa153
+select #fff7ed
+border #f5f5f5
+шрифт #787b7d
+*/
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+body {
+  color: hsl(204 2% 25% / 1);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #e2e2e2;
+}
+.main-header {
+  text-align: center;
+  font-size: 3rem;
+}
+button,
+.button {
+  text-decoration: none;
+  border: 2px solid #bbbbbb;
+  color: hsl(204 2% 25% / 1);
+  background-color: white;
+  border-radius: 5px;
+  text-align: center;
+  display: block;
+  margin-top: 0.5rem;
+  width: 100%;
+  font-size: 1.5rem;
+  padding: 0.25rem 0;
+}
+h1 {
+  text-align: center;
+}
+button:hover {
+  background-color: #fff7ed;
+  cursor: pointer;
+}
+button:active {
+  background-color: #e4d9cb;
+}
+button.right {
+  background-color: green;
+}
+button.wrong {
+  background-color: red;
+}
+button.next {
+  margin-top: 1.5rem;
+  background-color: bisque;
+}
+img.question-image {
+  max-width: 100%;
+  max-height: 400px;
+  margin: 0 auto;
+  display: block;
+}
+.question-lines{
+  gap: 12px;
+  display: flex;
+  width: 600px;
+  margin: 0 auto;
+  margin-top: 25px;
+}
+.question-lines div {
+  height: 7px;
+  background-color: white;
+  flex: 1;
+  border-radius: 20px;
+  opacity: 50%;
+  transition: opacity 1s;
+}
+.question-lines div.active{
+  opacity: 100%;
+}
