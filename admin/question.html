@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./admin-base.css" />
+    <link rel="stylesheet" href="./admin-question.css" />
+    <title>Добавление вопросов</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  </head>
+  <body>
+    <header><img src="./adminIcon.svg" alt="adminIcon" /> Админ-панель</header>
+    <div class="container">
+      <menu>
+        <a href="./question-list.html">Вопросы</a>
+        <a href="./infometro.html">Информация о станции</a>
+      </menu>
+      <form action="">
+        <div class="field">
+          <label for="">Вопрос</label>
+          <input type="text" />
+        </div>
+        <div class="field">
+          <label for="">Картинка</label>
+          <input type="file" />
+        </div>
+        <div class="field">
+          <label for="">Варианты ответов</label>
+          <div class="add-answer-value">
+            <input type="text" />
+            <button>Добавить</button>
+          </div>
+        </div>
+        <div class="field">
+          <label for="">Верный ответ</label>
+          <input type="text" />
+        </div>
+        <div class="field">
+          <label for="">Расширенный ответ</label>
+          <textarea name="" id="" cols="30" rows="10"></textarea>
+        </div>
+        <button class="save-button">Сохранить</button>
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+form {
+    width: 600px;
+}
+label {
+    flex-basis: 170px;
+}
+textarea {
+    flex-grow: 1;
+}
+.add-answer-value {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+.add-answer-value button {
+    margin-top: 0.5rem;
+}
+form .field {
+    margin: 1.5rem 0;
+}
+.save-button {
+    width: 100%;
+    font-size: 1.5rem;
+}
