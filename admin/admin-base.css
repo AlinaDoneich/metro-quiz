@@ -43,6 +43,13 @@ input[type="button"] {
 .container {
   display: flex;
 }
+
+@media (max-width: 600px) {
+  .container {
+    flex-direction: column;
+  }
+}
+
 menu {
   display: flex;
   flex-direction: column;

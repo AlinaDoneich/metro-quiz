@@ -1,12 +1,18 @@
 .editor-wrapper {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .form {
-    width: 1000px;
+  width: 1000px;
+}
+
+@media (max-width: 600px) {
+  .form {
+    width: 100%;
+  }
 }
 
 .field label {
-    flex-shrink: 0;
+  flex-shrink: 0;
 }
