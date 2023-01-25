@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./admin-base.css" />
+    <link rel="stylesheet" href="./admin-login.css" />
+    <title>Admin-metro</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../init.js"></script>
+  </head>
+  <body class="login-page">
+    <header>
+      <a href="./index.html">
+        <img src="./adminIcon.svg" alt="adminIcon" /> Админ-панель
+      </a>
+    </header>
+    <form action="">
+      <div id="errors" class="hidden">Не правильный логин или пароль</div>
+      <div class="field">
+        <label for="">Логин</label> <input type="text" id="login" />
+      </div>
+      <div class="field">
+        <label for="">Пароль</label> <input type="password" id="password" />
+      </div>
+      <input id="sign-in" type="button" value="Войти" />
+    </form>
+    <script src="./login.js"></script>
+  </body>
+</html>

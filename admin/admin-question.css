@@ -1,4 +1,4 @@
-form {
+.form {
     width: 600px;
 }
 label {
@@ -15,10 +15,16 @@ textarea {
 .add-answer-value button {
     margin-top: 0.5rem;
 }
-form .field {
+.form .field {
     margin: 1.5rem 0;
 }
 .save-button {
     width: 100%;
     font-size: 1.5rem;
+}
+#for-image {
+    max-width: 150px;
+}
+#for-image img {
+    width: 100%;
 }

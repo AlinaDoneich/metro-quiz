@@ -1,47 +1,53 @@
 header {
-    width: 100%;
-    padding: 1rem;
-    background-color: #D9D9D9;
-    font-size: 2rem;
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
+  width: 100%;
+  padding: 1rem;
+  background-color: #d9d9d9;
+  font-size: 2rem;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+}
+header a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: black;
 }
 header img {
-    margin-right: 1rem;
+  margin-right: 1rem;
 }
 body {
-    padding: 0;
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 0;
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
-form  {
-    width: 350px;
-    margin: 2rem auto;
+.form {
+  width: 350px;
+  margin: 2rem auto;
 }
-form input {
-    flex-grow: 1; 
+.form input {
+  flex-grow: 1;
 }
-form .field {
-    margin: 1rem 0;
-    display: flex;
+.form .field {
+  margin: 1rem 0;
+  display: flex;
 }
 label {
-    flex-basis: 60px;
-    flex-grow: 0;
+  flex-basis: 60px;
+  flex-grow: 0;
 }
 input[type="button"] {
-    width: 100%;
-    font-size: 1.5rem;
+  width: 100%;
+  font-size: 1.5rem;
 }
 .container {
-    display: flex;
+  display: flex;
 }
 menu {
-    display: flex;
-    flex-direction: column;
-    padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  padding: 0 1rem;
 }
 menu a {
-    margin: 0.5rem 0;
+  margin: 0.5rem 0;
 }

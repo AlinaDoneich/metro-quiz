@@ -6,9 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./admin-base.css" />
     <link rel="stylesheet" href="./admin-question.css" />
-    <title>Добавление вопросов</title>
+    <title>Добавление информации о станции</title>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
     <script src="../init.js"></script>
     <script src="./auth.js"></script>
   </head>
@@ -25,8 +24,8 @@
       </menu>
       <div class="form">
         <div class="field">
-          <label for="">Вопрос</label>
-          <input type="text" id="question" />
+          <label for="">Станция</label>
+          <input type="text" id="name" />
         </div>
         <div class="field">
           <label for="">Картинка</label>
@@ -34,31 +33,13 @@
           <input type="file" id="file" />
         </div>
         <div class="field">
-          <label for="">Варианты ответов</label>
-          <textarea
-            name=""
-            id="answers"
-            cols="30"
-            rows="10"
-            placeholder="Введите варианты ответов, каждый на новой строке"
-          ></textarea>
+          <label for="">Информация о станции</label>
+          <textarea name="" id="content" cols="30" rows="20" placeholder="Введите информацию о станции"></textarea>
         </div>
-        <div class="field">
-          <label for="">Верный ответ</label>
-          <input type="text" id="answer" />
-        </div>
-        <div class="field">
-          <label for="">Расширенный ответ</label>
-          <textarea
-            name=""
-            id="answerDescription"
-            cols="30"
-            rows="10"
-          ></textarea>
-        </div>
+        <div id="qr-code"></div>
         <button class="save-button">Сохранить</button>
       </div>
     </div>
-    <script src="./question.js"></script>
+    <script src="./station.js"> </script>
   </body>
 </html>

@@ -1,19 +1,28 @@
-.login-page form  {
-    width: 350px;
-    margin: 2rem auto;
+.login-page form {
+  width: 350px;
+  margin: 2rem auto;
 }
 .login-page form input {
-    flex-grow: 1; 
+  flex-grow: 1;
 }
 .login-page form .field {
-    margin: 1rem 0;
-    display: flex;
+  margin: 1rem 0;
+  display: flex;
 }
 .login-page label {
-    flex-basis: 60px;
-    flex-grow: 0;
+  flex-basis: 60px;
+  flex-grow: 0;
 }
 .login-page input[type="button"] {
-    width: 100%;
-    font-size: 1.5rem;
+  width: 100%;
+  font-size: 1.5rem;
+}
+
+#errors {
+  text-align: center;
+  color: red;
+}
+
+.hidden {
+  display: none;
 }

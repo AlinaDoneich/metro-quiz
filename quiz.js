@@ -1,11 +1,17 @@
 let index = -1;
 let score = 0;
 let needCheckAnswer = true;
-let questions = selectRandomQuestions(allQuestions, 5);
+let questions = [];
 const questionBox = document.getElementById("question-box");
 const questionLines = document.getElementById("question-lines");
 
 //Проверяет ответ и выводит кнопку Далее
+/**
+ * @param {string} answer
+ * @param {{ question: string; answer: string; answers: string[]; answer_description: string; imgURL: string }} question
+ * @param {HTMLElement} buttonElement
+ * @returns
+ */
 function checkAnswer(answer, question, buttonElement) {
   if (needCheckAnswer === false) {
     return;
@@ -22,10 +28,10 @@ function checkAnswer(answer, question, buttonElement) {
   }
   needCheckAnswer = false;
   //Если есть развернутый ответ, добавим его в бокс вначало
-  if (question.details) {
-    const details = document.createElement("p");
-    details.innerText = question.details;
-    questionBox.appendChild(details);
+  if (question.answer_description) {
+    const detailsElement = document.createElement("p");
+    detailsElement.innerText = question.answer_description;
+    questionBox.appendChild(detailsElement);
   }
   addNextButton();
   // next();
@@ -68,33 +74,37 @@ function renderEnd() {
   resetButton.innerText = "Пройти заново";
   questionBox.appendChild(resetButton);
   resetButton.addEventListener("click", () => {
-    start();
+    location.reload();
   });
   //очистить бокс и написать туда сколько правильных и сколько всего вопросов
 }
-function start() {
+async function start() {
   index = -1;
   score = 0;
   needCheckAnswer = true;
   questionLines.innerHTML = "";
-  questions = selectRandomQuestions(allQuestions, 10);
+  questions = await getQuestions();
   renderLines();
   next();
 }
 //Рисует вопрос
+
+/**
+ * @param {{ question: string; answer: string; answers: string[]; answer_description: string; imgURL: string }} question
+ */
 function renderQuestion(question) {
   questionBox.innerHTML = "";
   const header = document.createElement("h1");
   header.innerText = question.question;
   questionBox.appendChild(header);
-  if (question.questionImage) {
+  if (question.imgURL) {
     const img = document.createElement("img");
-    img.src = question.questionImage;
+    img.src = question.imgURL;
     questionBox.appendChild(img);
     img.classList.add("question-image");
   }
 
-  question.options.forEach((answer) => {
+  question.answers.forEach((answer) => {
     const buttonElement = document.createElement("button");
     buttonElement.innerText = answer;
     questionBox.appendChild(buttonElement);
@@ -106,11 +116,7 @@ function renderQuestion(question) {
     }
   });
 }
-console.log(questions);
-function selectRandomQuestions(items, count) {
-  const shuffled = items.slice().sort(() => 0.5 - Math.random());
-  return shuffled.slice(0, count);
-}
+
 function renderLines() {
   const count = questions.length;
   //нарисовать столько линий, сколько у нас вопросов
@@ -118,6 +124,12 @@ function renderLines() {
     const line = document.createElement("div");
     questionLines.appendChild(line);
   }
+}
+
+async function getQuestions() {
+  //загрузить из бд вопросы
+  const { data } = await supabaseClient.from("random_questions").select().limit(10);
+  return data;
 }
 
 start();

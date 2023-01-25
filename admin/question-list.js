@@ -1,20 +1,48 @@
-const client = supabase.createClient(
-  "https://xpiqfhtukilzmikbavju.supabase.co",
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhwaXFmaHR1a2lsem1pa2Jhdmp1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzAxNTcyNzIsImV4cCI6MTk4NTczMzI3Mn0.93XK9pbaY6_xH_NVkWnz9H4Rw1MzbB8L6JntBTpNd7I"
-);
+async function loadStations() {
+  // получение списка вопросов
+  const { data } = await supabaseClient.from("questions").select();
 
-async function loadData() {
-  const { data, error } = await client.from("questions").select();
-  console.log(data);
-
+  // получение элемента списка вопросов
   const questionList = document.querySelector(".question-list");
+
+  // очистка элемента для списка вопросов
   questionList.innerHTML = "";
 
   data.forEach((question) => {
+    const tr = document.createElement("tr");
+    const td1 = document.createElement("td");
+    const td2 = document.createElement("td");
+    const deleteButton = document.createElement("button");
+    deleteButton.innerText = "❌";
+    deleteButton.classList.add("delete-button");
+    deleteButton.addEventListener("click", () => {
+      if (confirm("Вы уверены что хотите удалить вопрос?")) {
+        deleteStation(question.id);
+      }
+    });
+
+    // создаем элемент ссылка
     const aElement = document.createElement("a");
+
+    // как текст ссылки пишем сам вопрос
     aElement.innerText = question.question;
-    aElement.href="./question.html?id="+question.id
-    questionList.appendChild(aElement);
+
+    // делаем ссылку на вопрос
+    aElement.href = "./question.html?id=" + question.id;
+
+    tr.appendChild(td1);
+    tr.appendChild(td2);
+    td1.appendChild(aElement);
+    td2.appendChild(deleteButton);
+
+    // добавляем ссылку в элемент для списка вопросов
+    questionList.appendChild(tr);
   });
 }
-loadData();
+
+async function deleteStation(id) {
+  await supabaseClient.from("questions").delete().match({ id: id });
+  loadStations();
+}
+
+loadStations();
