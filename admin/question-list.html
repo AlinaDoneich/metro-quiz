@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./admin-base.css" />
     <link rel="stylesheet" href="./admin-question-list.css" />
-    <link rel="shortcut icon" type="image/jpg" href="../favicon.ico"/>
+    <link rel="stylesheet" href="../loader.css" />
+    <link rel="shortcut icon" type="image/jpg" href="../favicon.ico" />
     <title>Добавление вопросов</title>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="../init.js"></script>
@@ -26,7 +27,11 @@
       <div class="question-list-container">
         <h2>Добавление вопросов</h2>
         <table>
-          <tbody class="question-list"></tbody>
+          <tbody>
+            <div class="question-list">
+              <span class="loader"></span>
+            </div>
+          </tbody>
         </table>
         <a href="./question.html">
           <button>Добавить</button>

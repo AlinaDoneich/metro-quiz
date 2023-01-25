@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./admin-base.css" />
     <link rel="stylesheet" href="./admin-question-list.css" />
+    <link rel="stylesheet" href="../loader.css" />
     <link rel="shortcut icon" type="image/jpg" href="../favicon.ico"/>
     <title>Добавление информации о станции</title>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -25,7 +26,9 @@
       </menu>
       <div class="question-list-container">
         <h2>Добавление информации о станции</h2>
-        <div class="station-list"></div>
+        <div class="station-list">
+          <span class="loader"></span>
+        </div>
         <a href="./station.html">
           <button>Добавить</button>
         </a>
