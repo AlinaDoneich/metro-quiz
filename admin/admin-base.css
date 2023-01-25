@@ -48,6 +48,14 @@ input[type="button"] {
   .container {
     flex-direction: column;
   }
+
+  .form label {
+    flex-basis: auto;
+  }
+
+  .form .field {
+    flex-direction: column;
+  }
 }
 
 menu {
