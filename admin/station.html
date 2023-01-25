@@ -6,9 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./admin-base.css" />
     <link rel="stylesheet" href="./admin-question.css" />
+    <link rel="stylesheet" href="./admin-station.css" />
     <title>Добавление информации о станции</title>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+    <link
+      href="https://cdn.quilljs.com/1.2.6/quill.snow.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.quilljs.com/1.2.6/quill.min.js"></script>
     <script src="../init.js"></script>
     <script src="./auth.js"></script>
   </head>
@@ -35,12 +41,24 @@
         </div>
         <div class="field">
           <label for="">Информация о станции</label>
-          <textarea name="" id="content" cols="30" rows="20" placeholder="Введите информацию о станции"></textarea>
+          <div class="editor-wrapper">
+            <div id="content"></div>
+          </div>
+          <!-- <textarea
+            name=""
+            id="content"
+            cols="30"
+            rows="20"
+            placeholder="Введите информацию о станции"
+          ></textarea> -->
         </div>
-        <div id="qr-code"></div>
+        <div class="field">
+          <label for="">QR код</label>
+          <div id="qr-code"></div>
+        </div>
         <button class="save-button">Сохранить</button>
       </div>
     </div>
-    <script src="./station.js"> </script>
+    <script src="./station.js"></script>
   </body>
 </html>

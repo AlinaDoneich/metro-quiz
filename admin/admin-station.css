@@ -1,0 +1,12 @@
+.editor-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.form {
+    width: 1000px;
+}
+
+.field label {
+    flex-shrink: 0;
+}

@@ -4,6 +4,30 @@ const saveButton = document.querySelector(".save-button");
 // сохраняем ссылку на выбор файла
 const fileElement = document.querySelector("#file");
 
+// создаем текстовый редактор
+const quill = new Quill("#content", {
+  placeholder: "Введите описание станции",
+  theme: "snow",
+  modules: {
+    toolbar: [
+      [{ font: [] }, { size: [] }],
+      ["bold", "italic", "underline", "strike"],
+      [{ color: [] }, { background: [] }],
+      [{ script: "super" }, { script: "sub" }],
+      [{ header: "1" }, { header: "2" }, "blockquote", "code-block"],
+      [
+        { list: "ordered" },
+        { list: "bullet" },
+        { indent: "-1" },
+        { indent: "+1" },
+      ],
+      ["direction", { align: [] }],
+      ["link", "image", "video", "formula"],
+      ["clean"],
+    ],
+  },
+});
+
 //привязать функцию к кнопке
 saveButton.addEventListener("click", () => {
   saveStation();
@@ -25,14 +49,17 @@ async function init() {
     return;
   }
 
-
-  new QRCode(document.getElementById("qr-code"), "https://alinadoneich.github.io/metro-quiz/station?id=" + id);
+  new QRCode(document.getElementById("qr-code"), {
+    text: "https://alinadoneich.github.io/metro-quiz/station.html?id=" + id,
+    width: 128,
+    height: 128,
+  });
 
   const { data } = await supabaseClient.from("stations").select().eq("id", id);
   const station = data[0];
 
   document.querySelector("#name").value = station.name;
-  document.querySelector("#content").value = station.content;
+  quill.pasteHTML(station.content);
 }
 
 init();
@@ -48,14 +75,14 @@ function insertImg(imgURL) {
 async function saveStation() {
   const nameElement = document.querySelector("#name"); //получаем сслыку на хтмлЭлемент
 
-  //получим ссылку на варианты ответов
-  const content = document.querySelector("#content");
+  // получаем контент из редактора
+  const content = document.querySelector("#content").children[0].innerHTML;
 
   const id = getId();
   if (id) {
-    update(id, nameElement.value, content.value);
+    update(id, nameElement.value, content);
   } else {
-    insert(nameElement.value, content.value);
+    insert(nameElement.value, content);
   }
 }
 
@@ -77,11 +104,9 @@ async function update(id, name, content) {
   const result = await supabaseClient
     .from("stations")
     .update({
-        name: name,
-        content: content,
+      name: name,
+      content: content,
     })
     .eq("id", Number(id));
   location.reload();
 }
-
-
