@@ -1,9 +1,6 @@
 //получить ссылку на кнопку
 const saveButton = document.querySelector(".save-button");
 
-// сохраняем ссылку на выбор файла
-const fileElement = document.querySelector("#file");
-
 // создаем текстовый редактор
 const quill = new Quill("#content", {
   placeholder: "Введите описание станции",
@@ -33,15 +30,6 @@ saveButton.addEventListener("click", () => {
   saveStation();
 });
 
-//привязать выбора файла к функции
-fileElement.addEventListener("change", async () => {
-  const file = fileElement.files[0];
-  if (file) {
-    const file64 = await base64(file);
-    insertImg(file64);
-  }
-});
-
 async function init() {
   const id = getId();
 
@@ -63,13 +51,6 @@ async function init() {
 }
 
 init();
-
-function insertImg(imgURL) {
-  const divForImage = document.getElementById("for-image");
-  const imgElement = document.createElement("img");
-  imgElement.src = imgURL;
-  divForImage.appendChild(imgElement);
-}
 
 //функция добавления нового вопроса
 async function saveStation() {
