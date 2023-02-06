@@ -39,6 +39,7 @@ img.question-image {
   width: 600px;
   margin: 0 auto;
   margin-top: 25px;
+  max-width: 95%;
 }
 .question-lines div {
   height: 7px;
@@ -50,4 +51,7 @@ img.question-image {
 }
 .question-lines div.active{
   opacity: 100%;
+}
+#question-box img {
+  max-width: 95%;
 }
