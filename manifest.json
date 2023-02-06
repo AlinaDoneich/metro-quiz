@@ -4,7 +4,7 @@
   "display": "fullscreen",
   "name": "Гид по метро",
   "short_name": "Metro",
-  "start_url": "/quiz.html",
+  "start_url": "/metro-quiz/quiz.html",
   "icons": [
     {
       "src": "icons/windows11/SmallTile.scale-100.png",
