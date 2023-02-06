@@ -5,3 +5,9 @@
   flex-direction: column;
   align-items: center;
 }
+#station-content {
+  padding: 10px;
+}
+#station-content img {
+  max-width: 95%;
+}
