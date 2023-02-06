@@ -36,10 +36,9 @@ img.question-image {
 .question-lines{
   gap: 12px;
   display: flex;
-  width: 600px;
+  max-width: 600px;
   margin: 0 auto;
   margin-top: 25px;
-  max-width: 95%;
 }
 .question-lines div {
   height: 7px;
